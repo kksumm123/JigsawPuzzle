@@ -9,6 +9,9 @@ public class Piece : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
     public void OnBeginDrag(PointerEventData eventData)
     {
         GetComponent<Image>().raycastTarget = false;
+
+        //하이어라키 순서변경
+        transform.SetAsLastSibling();
     }
 
     public void OnDrag(PointerEventData eventData)
