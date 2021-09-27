@@ -34,8 +34,8 @@ public class PuzzlePiecePoint : MonoBehaviour
                 rt.sizeDelta = new Vector2(pieceWidth, pieceHeight);
 
                 //위치
-                float xPos = x * pieceWidth;
-                float yPos = y * pieceHeight;
+                float xPos = x * pieceWidth + (pieceWidth * 0.5f);
+                float yPos = -y * pieceHeight - (pieceHeight * 0.5f);
                 item.transform.localPosition = new Vector3(xPos, yPos);
 
                 item.AddComponent<Image>().sprite = sprites[imageIndex];
