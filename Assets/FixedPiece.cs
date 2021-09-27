@@ -7,8 +7,16 @@ using UnityEngine.UI;
 
 public class FixedPiece : MonoBehaviour, IDropHandler
 {
+    bool isComplete = false;
     public void OnDrop(PointerEventData eventData)
     {
+        if (isComplete)
+        {
+            eventData.pointerDrag.GetComponent<Piece>().ResetPosition();
+            return;
+        }
+
+
         eventData.pointerDrag.transform.position = transform.position;
 
         string log = $"{eventData.pointerDrag.name} 오브젝트가 {name}에 드랍됨";
@@ -27,7 +35,7 @@ public class FixedPiece : MonoBehaviour, IDropHandler
             // Piece 컴포넌트 끄기
             eventData.pointerDrag.GetComponent<Piece>().enabled = false;
 
-            enabled = false;
+            isComplete = true;
         }
     }
 
