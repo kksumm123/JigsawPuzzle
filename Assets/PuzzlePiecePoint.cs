@@ -27,7 +27,7 @@ public class PuzzlePiecePoint : MonoBehaviour
         {
             for (int x = 0; x < xCount; x++)
             {
-                var item = new GameObject($"{x} : {y}");
+                var item = new GameObject($"{x} : {y}", typeof(FixedPiece));
                 item.transform.parent = transform;
                 RectTransform rt = item.AddComponent<RectTransform>();
                 //크기
@@ -39,6 +39,10 @@ public class PuzzlePiecePoint : MonoBehaviour
                 item.transform.localPosition = new Vector3(xPos, yPos);
 
                 item.AddComponent<Image>().sprite = sprites[imageIndex];
+                var image = item.GetComponent<Image>();
+                var color = image.color;
+                color.a = 0.5f;
+                image.color = color;
                 imageIndex++;
             }
         }
