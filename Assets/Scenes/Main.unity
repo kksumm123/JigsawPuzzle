@@ -502,19 +502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389be3ed31fe01a4188ffd86eb54227d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pieces: {fileID: 648310799}
-  sprites:
-  - {fileID: -8966046471251689382, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
-  - {fileID: -7946637898197985892, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
-  - {fileID: 6927372087514070165, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
-  - {fileID: -9174753073356378451, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
-  - {fileID: 5236950505194482414, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
-  - {fileID: 5270262443330567642, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
-  - {fileID: 3889075008054977514, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
-  - {fileID: 700903844669265498, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
-  - {fileID: -639038612107221332, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
-  - {fileID: -5233918230888388397, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
-  - {fileID: 5123645826539323228, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
-  - {fileID: 7990228312145530618, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
+  originalTexture: {fileID: 2800000, guid: 042dd477fa2ea124d92113578dd1bc6a, type: 3}
+  pieceParent: {fileID: 648310799}
+  sprites: []
   xCount: 4
   yCount: 3
