@@ -22,16 +22,18 @@ public class FixedPiece : MonoBehaviour, IDropHandler
             StartCoroutine(BlickCo(draggedImage));
 
             // 점수 증가
-            //GameManager.Instance.AddScore(100);
+            GameManager.Instance.AddScore(100);
 
             // Piece 컴포넌트 끄기
             eventData.pointerDrag.GetComponent<Piece>().enabled = false;
+
+            enabled = false;
         }
     }
 
     bool IsRighPosition(GameObject pointerDrag)
     {
-        if (pointerDrag.name == name)
+        if (pointerDrag.name.Contains(name))
             return true;
 
         return false;

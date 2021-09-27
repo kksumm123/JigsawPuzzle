@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PuzzlePiecePoint : MonoBehaviour
 {
+    public Transform Pieces;
     public List<Sprite> sprites;
     public int xCount = 4;
     public int yCount = 3;
@@ -23,6 +25,7 @@ public class PuzzlePiecePoint : MonoBehaviour
         float pieceHeight = sprites[0].textureRect.height;
 
         int imageIndex = 0;
+        List<GameObject> images = new List<GameObject>();
         for (int y = 0; y < yCount; y++)
         {
             for (int x = 0; x < xCount; x++)
@@ -39,12 +42,22 @@ public class PuzzlePiecePoint : MonoBehaviour
                 item.transform.localPosition = new Vector3(xPos, yPos);
 
                 item.AddComponent<Image>().sprite = sprites[imageIndex];
-                var image = item.GetComponent<Image>();
-                var color = image.color;
-                color.a = 0.5f;
-                image.color = color;
+                images.Add(Instantiate(item, Pieces));
+
+                var curImage = item.GetComponent<Image>();
+                var curImageColor = curImage.color;
+                curImageColor.a = 0.5f;
+                curImage.color = curImageColor;
                 imageIndex++;
             }
+        }
+        foreach (var item in images)
+        {
+            Destroy(item.GetComponent<FixedPiece>());
+            item.AddComponent<Piece>();
+            item.transform.position = 
+                new Vector3(Random.Range(0 + pieceWidth * 0.5f, Camera.main.pixelWidth),
+                            Random.Range(0 + pieceHeight * 0.5f, Camera.main.pixelHeight));
         }
     }
 
